@@ -1,18 +1,19 @@
 package uz.pdp.roleandpermission.entity.enums;
 
 public enum Permission {
-    ADD_USER,
-    EDIT_USER,
-    DELETE_USER,
-    VIEW_USER,
-    ADD_ROLE,
-    EDIT_ROLE,
-    DELETE_ROLE,
-    VIEW_ROLE,
-    ADD_POST,
-    DELETE_POST,
-    ADD_COMMENT,
-    EDIT_COMMENT,
-    DELETE_COMMENT,
-    DELETE_MY_COMMENT
+    ADD_USER,   //  ADMIN
+    EDIT_USER,  //  ADMIN
+    DELETE_USER,    //  ADMIN
+    VIEW_USER,  //  ADMIN
+    ADD_ROLE,   //  ADMIN
+    EDIT_ROLE,  //  ADMIN
+    DELETE_ROLE,    //  ADMIN
+    VIEW_ROLE,  //  ADMIN
+    ADD_POST,   //  ADMIN, ...
+    EDIT_POST,   //  ADMIN, ...
+    DELETE_POST,    //  ADMIN, ...
+    ADD_COMMENT,    //  ADMIN, ...
+    EDIT_COMMENT,   //  ADMIN, ...
+    DELETE_COMMENT, //  ADMIN, ...
+    DELETE_MY_COMMENT   //  ALL
 }

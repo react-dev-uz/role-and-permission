@@ -22,7 +22,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
+@Entity(name = "users")
 public class User extends AbstractEntity implements UserDetails {
 
     @Column(name = "full_name", nullable = false)

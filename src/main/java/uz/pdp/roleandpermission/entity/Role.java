@@ -1,8 +1,6 @@
 package uz.pdp.roleandpermission.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,12 +17,13 @@ import java.util.Set;
 @Entity
 public class Role extends AbstractEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
 //    @Enumerated(EnumType.STRING)
 //    private RoleName roleName;
 
+    @Enumerated(EnumType.STRING)
     @ElementCollection
     private Set<Permission> permissions;
 }
