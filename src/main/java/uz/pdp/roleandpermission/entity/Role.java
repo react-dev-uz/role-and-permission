@@ -26,4 +26,12 @@ public class Role extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     @ElementCollection
     private Set<Permission> permissions;
+
+    @Column(name = "description", length = 500)
+    private String description;
+
+    public Role(String name, Set<Permission> permissions) {
+        this.name = name;
+        this.permissions = permissions;
+    }
 }

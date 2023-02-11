@@ -15,14 +15,14 @@ public class RegisterDTO {
     @NotBlank
     private String fullName;
 
-    @NotNull
+    @NotNull(message = "Username cannot be null")
     @Size(min = 4)
     private String username;
 
-    @NotNull
+    @NotNull(message = "Password must not be null")
     @Size(min = 7)
     private String password;
 
-    @NotNull
+    @NotNull(message = "prePassword must not be null")
     private String prePassword;
 }
