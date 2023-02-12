@@ -1,8 +1,6 @@
 package uz.pdp.roleandpermission.controller;
 
-import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
