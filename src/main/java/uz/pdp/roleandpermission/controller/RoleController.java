@@ -1,8 +1,11 @@
 package uz.pdp.roleandpermission.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +41,16 @@ public class RoleController {
     public ResponseEntity<?> getPermissions() {
         SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return roleService.getPermissions();
+    }
+
+    @Secured({"ADD_ROLE", "EDIT_ROLE", "DELETE_ROLE", "VIEW_ROLE"})
+    @GetMapping
+    public ResponseEntity<?> getRoles() {
+        return roleService.getRoles();
+    }
+
+    @DeleteMapping("/{roleId}")
+    public ResponseEntity<?> deleteRole(@PathVariable(name = "roleId") Long roleId) {
+        return roleService.deleteRole(roleId);
     }
 }

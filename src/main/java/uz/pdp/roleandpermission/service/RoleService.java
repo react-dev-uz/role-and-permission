@@ -8,10 +8,10 @@ import uz.pdp.roleandpermission.entity.enums.Permission;
 import uz.pdp.roleandpermission.payload.RoleDTO;
 import uz.pdp.roleandpermission.repository.RoleRepository;
 
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
-import static org.springframework.http.ResponseEntity.ok;
-import static org.springframework.http.ResponseEntity.status;
+import java.util.Optional;
+
+import static org.springframework.http.HttpStatus.*;
+import static org.springframework.http.ResponseEntity.*;
 
 @Service
 public class RoleService {
@@ -36,5 +36,20 @@ public class RoleService {
 
     public ResponseEntity<?> getPermissions() {
         return ok(Permission.values());
+    }
+
+    public ResponseEntity<?> getRoles() {
+        return ok(roleRepository.findAll());
+    }
+
+    public ResponseEntity<?> deleteRole(Long roleId) {
+        Optional<Role> optionalRole = roleRepository.findById(roleId);
+        if (optionalRole.isEmpty()) return status(NOT_FOUND).body("Role not found");
+        try {
+            roleRepository.delete(optionalRole.get());
+            return status(NO_CONTENT).body("Role successfully deleted");
+        } catch (Exception e) {
+            return badRequest().body("Role could not be deleted");
+        }
     }
 }

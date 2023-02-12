@@ -18,7 +18,7 @@ import uz.pdp.roleandpermission.component.JWTFilter;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SpringSecurityConfig {
 
     private final JWTFilter jwtFilter;
