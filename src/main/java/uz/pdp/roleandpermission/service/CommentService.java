@@ -57,6 +57,7 @@ public class CommentService {
         return ok("Comment edited");
     }
 
+//    TODO: qilinadigan ishlari bor
     public ResponseEntity<?> deleteComment(Long commentId) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println(principal);
